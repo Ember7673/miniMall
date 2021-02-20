@@ -1,0 +1,34 @@
+<template>
+  <div>
+      首页
+      <button @tap="getOpenID">getOpenID</button>
+  </div>
+</template>
+
+<script>
+import wepy from '@wepy/core'
+
+wepy.page({
+  // 选项
+  methods: {
+      getOpenID () {
+        console.log(11)
+        wx.cloud.callFunction({
+            name: 'login'
+        }).then(res => {
+            console.log(wepy)
+            // wepy.showToast({
+            // title: `openID为 ${res.result.openid}`,
+            // icon: 'none'
+            // })
+        })
+    },
+  }
+    
+})
+</script>
+<config>
+{
+    navigationBarTitleText: '首页',
+}
+</config>
